@@ -1,0 +1,6 @@
+.env
+keys/
+node_modules
+seedCategories.js
+seedSubCategories.js
+telegramConnect.js

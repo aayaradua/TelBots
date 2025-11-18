@@ -24,15 +24,16 @@ const botSchema = new mongoose.Schema({
     logo: {
         type: String
     },
-    commands: {
-        type: String,
+    activeUsers: {
+        type: Number
     },
-    status: {
-        type: String,
-        enum: ["approve", "pending"],
-        default: "pending"
-    },
-
+    commands: [
+        {
+            command: String,
+            description: String
+        }
+    ],
+  
 }, { timestamps: true});
 
 export const Bot = mongoose.model("bot", botSchema);

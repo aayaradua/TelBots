@@ -1,0 +1,432 @@
+Bot result {
+  CONSTRUCTOR_ID: 997004590,
+  SUBCLASS_OF_ID: 2212470261,
+  className: 'users.UserFull',
+  classType: 'constructor',
+  fullUser: {
+    CONSTRUCTOR_ID: 1301765052,
+    SUBCLASS_OF_ID: 524706233,
+    className: 'UserFull',
+    classType: 'constructor',
+    flags: 131214,
+    blocked: false,
+    phoneCallsAvailable: false,
+    phoneCallsPrivate: false,
+    canPinMessage: true,
+    hasScheduled: false,
+    videoCallsAvailable: false,
+    voiceMessagesForbidden: false,
+    translationsDisabled: false,
+    storiesPinnedAvailable: false,
+    blockedMyStoriesFrom: false,
+    wallpaperOverridden: false,
+    contactRequirePremium: false,
+    readDatesPrivate: false,
+    flags2: 0,
+    sponsoredEnabled: false,
+    canViewRevenue: false,
+    botCanManageEmojiStatus: false,
+    id: Integer { value: 162726413n },
+    about: '🤖 This is the most complete Bot to help you manage your groups easily and safely!\n' +
+      '➡️ Add me in your group as Admin!',
+    settings: {
+      CONSTRUCTOR_ID: 2899733598,
+      SUBCLASS_OF_ID: 4138180484,
+      className: 'PeerSettings',
+      classType: 'constructor',
+      flags: 16,
+      reportSpam: false,
+      addContact: false,
+      blockContact: false,
+      shareContact: false,
+      needContactsException: true,
+      reportGeo: false,
+      autoarchived: false,
+      inviteMembers: false,
+      requestChatBroadcast: false,
+      businessBotPaused: false,
+      businessBotCanReply: false,
+      geoDistance: null,
+      requestChatTitle: null,
+      requestChatDate: null,
+      businessBotId: null,
+      businessBotManageUrl: null
+    },
+    personalPhoto: null,
+    profilePhoto: {
+      CONSTRUCTOR_ID: 4212750949,
+      SUBCLASS_OF_ID: 3581324060,
+      className: 'Photo',
+      classType: 'constructor',
+      flags: 0,
+      hasStickers: false,
+      id: [Integer],
+      accessHash: [Integer],
+      fileReference: <Buffer 00 69 15 91 fc 2e 8b 22 25 69 72 dc b8 c2 ac a2 f5 39 3d 4e f0>,
+      date: 1736422208,
+      sizes: [Array],
+      videoSizes: null,
+      dcId: 4
+    },
+    fallbackPhoto: null,
+    notifySettings: {
+      CONSTRUCTOR_ID: 2573347852,
+      SUBCLASS_OF_ID: 3475030132,
+      className: 'PeerNotifySettings',
+      classType: 'constructor',
+      flags: 0,
+      showPreviews: null,
+      silent: null,
+      muteUntil: null,
+      iosSound: null,
+      androidSound: null,
+      otherSound: null,
+      storiesMuted: null,
+      storiesHideSender: null,
+      storiesIosSound: null,
+      storiesAndroidSound: null,
+      storiesOtherSound: null
+    },
+    botInfo: {
+      CONSTRUCTOR_ID: 1300890265,
+      SUBCLASS_OF_ID: 4059496923,
+      className: 'BotInfo',
+      classType: 'constructor',
+      flags: 134,
+      hasPreviewMedias: false,
+      userId: null,
+      description: 'This is the most complete Bot to help you manage your groups easily and safely!\n' +
+        '\n' +
+        'Just add me to a group as Admin and then use /settings to set up functions.',
+      descriptionPhoto: null,
+      descriptionDocument: null,
+      commands: [Array],
+      menuButton: null,
+      privacyPolicyUrl: 'https://www.grouphelp.top/privacy',
+      appSettings: null,
+      verifierSettings: null
+    },
+    pinnedMsgId: null,
+    commonChatsCount: 4,
+    folderId: null,
+    ttlPeriod: null,
+    themeEmoticon: null,
+    privateForwardName: null,
+    botGroupAdminRights: {
+      CONSTRUCTOR_ID: 1605510357,
+      SUBCLASS_OF_ID: 2252195780,
+      className: 'ChatAdminRights',
+      classType: 'constructor',
+      flags: 7865,
+      changeInfo: true,
+      postMessages: false,
+      editMessages: false,
+      deleteMessages: true,
+      banUsers: true,
+      inviteUsers: true,
+      pinMessages: true,
+      addAdmins: true,
+      anonymous: true,
+      manageCall: true,
+      other: true,
+      manageTopics: false,
+      postStories: false,
+      editStories: false,
+      deleteStories: false
+    },
+    botBroadcastAdminRights: null,
+    premiumGifts: null,
+    wallpaper: null,
+    stories: null,
+    businessWorkHours: null,
+    businessLocation: null,
+    businessGreetingMessage: null,
+    businessAwayMessage: null,
+    businessIntro: null,
+    birthday: null,
+    personalChannelId: null,
+    personalChannelMessage: null,
+    stargiftsCount: null,
+    starrefProgram: null,
+    botVerification: null
+  },
+  chats: [],
+  users: [
+    {
+      CONSTRUCTOR_ID: 1262928766,
+      SUBCLASS_OF_ID: 765557111,
+      className: 'User',
+      classType: 'constructor',
+      flags: 33570859,
+      self: false,
+      contact: false,
+      mutualContact: false,
+      deleted: false,
+      bot: true,
+      botChatHistory: false,
+      botNochats: false,
+      verified: false,
+      restricted: false,
+      min: false,
+      botInlineGeo: false,
+      support: false,
+      scam: false,
+      applyMinPhoto: true,
+      fake: false,
+      botAttachMenu: false,
+      premium: false,
+      attachMenuEnabled: false,
+      flags2: 4112,
+      botCanEdit: false,
+      closeFriend: false,
+      storiesHidden: false,
+      storiesUnavailable: true,
+      contactRequirePremium: false,
+      botBusiness: false,
+      botHasMainApp: false,
+      id: [Integer],
+      accessHash: [Integer],
+      firstName: 'Group Help',
+      lastName: null,
+      username: 'GroupHelpBot',
+      phone: null,
+      photo: [Object],
+      status: null,
+      botInfoVersion: 43,
+      restrictionReason: null,
+      botInlinePlaceholder: null,
+      langCode: null,
+      emojiStatus: null,
+      usernames: null,
+      storiesMaxId: null,
+      color: null,
+      profileColor: null,
+      botActiveUsers: 998541,
+      botVerificationIcon: null
+    }
+  ]
+}
+GroupHelpBot^D
+
+
+
+
+import Header from "./Header";
+import Hero from "./Hero";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function Home() {
+  const [bots, setBots] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedBot, setSelectedBot] = useState(null);
+
+  useEffect(() => {
+    const fetchBots = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/api/v1/user");
+      setBots(res.data?.data);
+      } catch (err) {
+        console.error("Failed to fetch bots:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBots();
+  }, []);
+
+  return (
+    <main className="w-full min-h-screen bg-[#f7f9fc]">
+      <Header />
+
+      <section className="pt-20">
+        <Hero />
+      </section>
+
+      {/* SEARCH BAR */}
+      <section className="max-w-6xl mx-auto px-6 mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full"
+        >
+          <input
+            type="text"
+            placeholder="Search Telegram bots..."
+            className="w-full p-4 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:border-[#0088cc]"
+          />
+        </motion.div>
+      </section>
+
+      {/* TOP BOTS OF THE WEEK */}
+      <section className="max-w-6xl mx-auto px-6 mt-16">
+        <h2 className="text-2xl font-semibold mb-6">Top Bots of the Week</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bots.slice(0, 6).map((bot, i) => (
+            <div
+              key={i}
+              className="p-5 bg-white border rounded-xl shadow cursor-pointer"
+              onClick={() => setSelectedBot(bot)}
+            >
+              <h3 className="font-semibold">{bot.username}</h3>
+              <p className="text-sm text-gray-600">{bot.status}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURED BOTS */}
+      <section className="max-w-6xl mx-auto px-6 mt-16">
+        <h2 className="text-2xl font-semibold mb-6">Featured Bots</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bots.slice(6, 12).map((bot, i) => (
+            <div
+              key={i}
+              className="p-5 bg-white border rounded-xl shadow cursor-pointer"
+              onClick={() => setSelectedBot(bot)}
+            >
+              <h3 className="font-semibold">{bot.username}</h3>
+              <p className="text-sm text-gray-600">{bot.status}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SPONSORED CATEGORY */}
+      <section className="max-w-6xl mx-auto px-6 mt-16">
+        <h2 className="text-2xl font-semibold mb-6">Sponsored Category</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bots.slice(12, 18).map((bot, i) => (
+            <div
+              key={i}
+              className="p-5 bg-white border rounded-xl shadow border-yellow-400 cursor-pointer"
+              onClick={() => setSelectedBot(bot)}
+            >
+              <h3 className="font-semibold">{bot.username}</h3>
+              <p className="text-sm text-gray-600">{bot.status}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CATEGORIES */}
+      <section className="max-w-6xl mx-auto px-6 mt-16">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          className="text-2xl font-semibold mb-6"
+        >
+          {"Categories".split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: i * 0.05 }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex gap-4 overflow-x-auto pb-4"
+        >
+          {[
+            "Utilities",
+            "Entertainment",
+            "AI",
+            "Finance",
+            "Productivity",
+            "Education",
+          ].map((cat, i) => (
+            <motion.div
+              key={cat}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
+              className="min-w-[140px] px-5 py-3 bg-white rounded-xl shadow border border-gray-200 text-center cursor-pointer"
+            >
+              {cat}
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* POPULAR BOTS */}
+      <section className="max-w-6xl mx-auto px-6 mt-20">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          className="text-2xl font-semibold mb-6"
+        >
+          {"Popular Bots".split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: i * 0.05 }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {bots.map((bot, i) => (
+            <motion.div
+              key={bot.id || i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
+              className="p-5 bg-white border border-gray-200 rounded-xl shadow cursor-pointer"
+              onClick={() => setSelectedBot(bot)}
+            >
+              <div className="h-10 w-10 bg-[#0088cc] rounded-full mb-3"></div>
+              <h3 className="font-semibold text-lg mb-1">{bot.username}</h3>
+              <p className="text-sm text-gray-600">{bot.status}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* MODAL */}
+      {selectedBot && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            className="bg-white p-6 rounded-xl max-w-md w-full"
+          >
+            <h2 className="text-xl font-semibold mb-4">{selectedBot.username}</h2>
+            <p>Status: {selectedBot.status}</p>
+            <p>Created At: {new Date(selectedBot.createdAt).toLocaleString()}</p>
+            <p>Updated At: {new Date(selectedBot.updatedAt).toLocaleString()}</p>
+            <button
+              onClick={() => setSelectedBot(null)}
+              className="mt-4 px-4 py-2 bg-[#0088cc] text-white rounded-lg"
+            >
+              Close
+            </button>
+          </motion.div>
+        </div>
+      )}
+
+      <footer className="w-full py-10 text-center text-gray-600 mt-20">
+        TelBots — Telegram Bot Directory
+      </footer>
+    </main>
+  );
+}

@@ -10,21 +10,49 @@ const sessionString = fs.readFileSync(path.join("src", "sessionString.txt"), "ut
 const client = new TelegramClient(new StringSession(sessionString), apiId, apiHash, { connectionRetries: 5 });
 let isConnected = false;
 
-async function ensureConnected() {
+const ensureConnected = async() => {
   if (!isConnected) {
     await client.connect();
     isConnected = true;
   }
 }
 
-export async function checkBot(username) {
+export const checkBot = async(username) => {
   try {
     await ensureConnected();
-    const entity = await client.getInputEntity(username);
-    const result = await client.invoke(new Api.users.GetFullUser({ id: entity }));
-    console.log("results", result);
-    return result;
-  } catch (err) {
-    return { status: "Failed", message: err.message };
+       const entity = await client.getInputEntity(username);
+    const botData = await client.invoke(new Api.users.GetFullUser({ id: entity }));
+     
+    const coreBot = {
+      username: botData?.users?.[0]?.username ?? null,
+      name: botData?.users?.[0]?.firstName ?? null,
+      id: botData?.fullUser?.id?.value.toString() ?? botData?.users?.[0]?.id?.value.toString() ?? null,
+      about: botData?.fullUser?.about ?? null,
+      description: botData?.fullUser?.botInfo?.description ?? null,
+      profilePhoto: botData?.fullUser?.profilePhoto ?? botData?.users?.[0]?.photo ?? null,
+      activeUsers: botData?.users?.[0]?.botActiveUsers ?? null,
+      privacyPolicyUrl: botData?.fullUser?.botInfo?.privacyPolicyUrl ?? null,
+      commands: botData?.fullUser?.botInfo?.commands ?? []
+    };
+    
+    const profilePhoto = botData?.fullUser?.profilePhoto ?? botData?.users?.[0]?.photo ?? null;
+  if (profilePhoto) {
+    const inputPhotoLocation = new Api.InputPhotoFileLocation({
+      id: BigInt(profilePhoto.id.value),
+      accessHash: BigInt(profilePhoto.accessHash.value),
+      fileReference: profilePhoto.fileReference, 
+      thumbSize: "x",
+    });
+
+    const buffer = await client.downloadProfilePhoto(username, { big: true });
+    if (buffer) {
+      const base64Image = buffer.toString("base64");
+       coreBot.profilePhoto = `data:image/jpeg;base64,${base64Image}`;
+    }
   }
-}
+    return coreBot;
+
+  } catch (err) {
+   throw err;
+  }
+};

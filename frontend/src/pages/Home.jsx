@@ -1,8 +1,17 @@
-import Header from "./Header";
-import Hero from "./Hero";
+import Header from "../components/home/Header";
+import Hero from "../components/home/Hero";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Features from "../components/home/Features";
+import Bots from "../components/home/Bots";
+import AnalyticsPreview from "../components/home/AnalyticsPreview";
+import Reputation from "../components/home/Reputation";
+import CategoryIntelligence from "../components/home/CategoryIntelligence";
+import VerificationAPI from "../components/VerificationAPI";
+import Advertising from "../components/home/Advertising";
+import Pricing from "../components/home/Pricing";
+import Footer from "../components/home/Footer";
 
 export default function Home() {
   const [bots, setBots] = useState([]);
@@ -12,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     const fetchBots = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/v1/user");
+        const res = await axios.get("http://localhost:3000/api/v1/bot");
         setBots(res.data?.data || []);
       } catch (err) {
         console.error("Failed to fetch bots:", err);
@@ -30,8 +39,17 @@ export default function Home() {
       <Header />
 
       {/* Hero Layer */}
-      <section className="pt-20">
+      <section>
         <Hero />
+        <Features />
+         <Bots />
+          <AnalyticsPreview />
+           <Reputation />
+           <CategoryIntelligence />
+           <VerificationAPI />
+           <Advertising />
+           <Pricing />
+           <Footer />
       </section>
 
       {/* Value Proposition Layer */}

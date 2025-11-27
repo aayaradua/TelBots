@@ -1,7 +1,7 @@
 import { verifyJwtToken } from "../utils/jwt.js";
 
 export const verifyToken = async(req, res, next) => {
-    const refreshToken = req.cookies.refreshToken;
+    const refreshToken = req.cookies.refreshToken;  
     if(!refreshToken) {
         return res.status(401).json({error: 'No or expired token'});
     }

@@ -1,4 +1,4 @@
-import { Admin } from "../models/Admin.js";
+import { User } from "../models/User.js";
 import { hashPassword, comparePassword } from "../utils/bcrypt.js";
 import { signAccessToken, signRefreshToken, verifyJwtToken } from "../utils/jwt.js";
 import { v4 as uuid } from 'uuid';
@@ -7,10 +7,63 @@ import { generateToken, hashToken } from "../utils/crypto.js";
 import { transporter } from "../utils/nodemailer.js";
 import { ENV } from "../config/index.js";
 
-export const loginAdmin = async( req, res) => {
+export const signUp = async(req, res) => {
+    try {
+        const { name, email, password, username, telegramUserId, telegramUsername} = req.body;
+        const user = await User.findOne({ email });
+        if (user) {
+            return res.status(400).json({error: "Email already used."});
+        };
+            
+        const hashedPassword = await hashPassword(password);
+        const verificationToken =  generateToken();
+        const hashedToken = hashToken(verificationToken);
+
+        const verificationUrl = `${ENV.FRONTEND_URL}/verify-email/${verificationToken}`;
+        const message = `
+            <h1>Email Verification</h1>
+            <p>Please verify your email by clicking the link below:</p>
+            <a href="${verificationUrl}">Verify Email</a>`;
+
+        try {
+            await transporter.sendMail({
+                to: email, 
+                subject: "Email Verification", 
+                html: message });
+            } catch (err) {
+                console.log("err", err);
+              throw err
+        }
+
+        await User.create({
+            name,
+            email, 
+            password: hashedPassword,
+            username, 
+            telegramUserId, 
+            telegramUsername,
+            verificationToken: hashedToken,
+            verificationTokenExpires: Date.now() + 3600000
+        });
+
+        return res.status(201).json({
+            status: "Success",
+            message: "User has been registered."
+        });
+
+    } catch(err) {
+         console.log("debug", err);
+        return res.status(500).json({
+            status: "Failed",
+            message: err.message
+        });
+    }
+};
+
+export const login = async( req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await Admin.findOne({ email });
+        const user = await User.findOne({ email });
         if (!user) {
             return res.status(400).json({error:'Email or password is invalid'});
         }
@@ -58,10 +111,34 @@ export const loginAdmin = async( req, res) => {
     } catch(err) {
         return res.status(500).json({
             status: 'Failed',
-            message: 'Login failed! Try again.'
+            message: err.message
         });
     }
 };
+
+export const getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user?.userId).select("-password");
+    if (!user) {
+      return res.status(404).json({
+        status: "Failed",
+        message: "User not found",
+        data: user
+      });
+    }
+
+    return res.status(200).json({
+      status: "Success",
+      data: user,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: "Failed",
+      message: err.message
+    });
+  }
+};
+
 
 
 export const forgotPassword = async (req, res) => {
@@ -106,7 +183,7 @@ export const forgotPassword = async (req, res) => {
 
 export const resetPassword = async (req, res) => {
     try {
-        const { token } = req.params;
+    const { token } = req.params;
     const { newPassword } = req.body;
     const hashedToken = hashToken(token);    
     const user = await Admin.findOne({
@@ -132,7 +209,7 @@ export const resetPassword = async (req, res) => {
     }
 };
 
-export const logoutAdmin = async (req, res) => {
+export const logout = async (req, res) => {
     const { accessToken, refreshToken } = req.cookies;
     if (!accessToken && !refreshToken) {
         return res.status(401).json({error: 'Token not found'});
@@ -152,4 +229,42 @@ export const logoutAdmin = async (req, res) => {
         status: 'Success',
         message: 'Logout successful'
     });
+};
+
+export const verifyEmail = async (req, res) => {
+  try {
+    const { verificationToken } = req.params;
+    if (!verificationToken) {
+      return res.status(400).json({
+        status: "Failed",
+        message: "Verification token is required."
+      });
+    }
+
+    const hashedToken = hashToken(verificationToken);
+
+    const user = await User.findOne({ verificationToken: hashedToken });
+    if (!user) {
+      return res.status(400).json({
+        status: "Failed",
+        message: "Invalid or expired verification token."
+      });
+    };
+
+    user.isVerified = true;
+    user.verificationToken = undefined;
+    user.verificationTokenExpires = undefined;
+    await user.save();
+
+    return res.status(200).json({
+      status: "Success",
+      message: "Email verified successfully."
+    });
+
+  } catch (err) {
+    return res.status(500).json({
+      status: "Failed",
+      message: "Email verification failed."
+    });
+  }
 };

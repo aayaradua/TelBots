@@ -1,4 +1,3 @@
-import { Admin } from "../models/Admin.js";
 import { Bot } from "../models/Bot.js";
 import { hashPassword } from "../utils/bcrypt.js";
 

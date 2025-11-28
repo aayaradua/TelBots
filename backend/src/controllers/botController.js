@@ -1,6 +1,7 @@
 import { message } from "telegram/client/index.js";
 import { Bot } from "../models/Bot.js";
 import { checkBot } from "../services/telegram.js";
+import { User } from "../models/User.js";
 
 export const submitBot = async(req, res) => {
     const { username } = req.body;
@@ -50,7 +51,8 @@ export const confirmBot = async(req, res) => {
     }));
 
     try {
-        await Bot.create({
+      const bot =  await Bot.create({
+            userId: req.user?.userId,
             name:botData.name,
             username: botData.username,
             botUrl: `https://t.me/${botData.username}`,
@@ -60,6 +62,10 @@ export const confirmBot = async(req, res) => {
             logo: botData.profilePhoto,
             activeUsers: botData.activeUsers,
             commands: cleanedCommands   
+        });
+
+        await User.updateOne({ _id: req.user?.userI}, {
+            $set: { botId: bot._id }
         });
     } catch (err) {
         return res.status(500).json({

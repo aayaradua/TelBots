@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const botSchema = new mongoose.Schema({
   userId: {
-    type: mongoose.Schema.Types.Types.ObjectId,
-    ref: "user"
-  },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user"
+    },
   name: String,
   username: String,
   botUrl: String,

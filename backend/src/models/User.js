@@ -50,6 +50,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    botId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "bot"
+    },
     stripeCustomerId: String,
     verificationToken: String,
     verificationTokenExpires: Date,

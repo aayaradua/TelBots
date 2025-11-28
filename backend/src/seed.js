@@ -2,10 +2,9 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import { User } from "./models/User.js";
 import { Bot } from "./models/Bot.js";
+import { ENV } from "./config/index.js";
 
-await mongoose.connect(
-  "mongodb+srv://aayaradua:ululalbab2018@cluster-1.dharfjb.mongodb.net/TelBots?retryWrites=true&w=majority&appName=Cluster-1"
-);
+await mongoose.connect(ENV.MONGO_URI);
 const seed = async () => {
   // Clean old data (optional)
   await User.deleteMany({});
